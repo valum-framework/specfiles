@@ -1,6 +1,6 @@
 Name:       valum-0.3
 Version:    0.3.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Valum is a Web micro-framework written in Vala
 
 Group:      Development/Libraries
@@ -25,7 +25,7 @@ asynchronous I/O.
 
 %package devel
 Summary:  Build files for Valum
-Requires: valum
+Requires: valum-0.3
 
 %description devel
 Provides build files including C header, Vala bindings and GIR introspection
