@@ -6,7 +6,7 @@ Summary:    Valum is a Web micro-framework written in Vala
 Group:      Development/Libraries
 License:    LGPL
 URL:        https://github.com/valum-framework/valum
-Source0:    %{url}/releases/download/v%{version}/valum-%{version}.tar.bz2
+Source0:    %{url}/archive/v%{version}.tar.gz
 
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gio-2.0)
