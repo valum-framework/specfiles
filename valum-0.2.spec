@@ -1,6 +1,6 @@
 Name:       valum-0.2
 Version:    0.2.16
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    Valum is a web micro-framework written in Vala
 
 Group:      Development/Libraries
@@ -48,6 +48,6 @@ meta-data.
 %exclude %{_libdir}/pkgconfig
 
 %files devel
-%{_datadir}/*
 %{_includedir}/*
-
+%{_libdir}/pkgconfig/*
+%{_datadir}/*
