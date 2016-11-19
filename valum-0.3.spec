@@ -1,4 +1,4 @@
-Name:       valum
+Name:       valum-0.3
 Version:    0.3.0
 Release:    1%{?dist}
 Summary:    Valum is a Web micro-framework written in Vala
@@ -32,7 +32,7 @@ Provides build files including C header, Vala bindings and GIR introspection
 meta-data.
 
 %prep
-%setup -q
+%autosetup -n valum-%{version}
 
 %build
 %meson
