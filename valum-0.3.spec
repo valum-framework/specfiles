@@ -1,6 +1,6 @@
 Name:       valum-0.3
 Version:    0.3.0
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    Valum is a Web micro-framework written in Vala
 
 Group:      Development/Libraries
@@ -15,8 +15,10 @@ BuildRequires: pkgconfig(libsoup-2.4)
 BuildRequires: fcgi-devel
 BuildRequires: meson
 BuildRequires: ninja-build
+BuildRequires: python3-sphinx
 BuildRequires: vala
 BuildRequires: vala-tools
+BuildRequires: valadoc
 
 %description
 Valum is a Web micro-framework able to create highly scalable expressive Web
@@ -31,12 +33,20 @@ Requires: valum-0.3
 Provides build files including C header, Vala bindings and GIR introspection
 meta-data.
 
+%package doc
+Summary:   Documentaion for Valum
+BuildArch: noarch
+
+%description doc
+Provides user and API documentation in HTML and Devhelp formats.
+
 %prep
 %autosetup -n valum-%{version}
 
 %build
 %meson
 %meson_build
+%meson_build docs/en docs/api docs/devhelp
 
 %install
 %meson_install
@@ -52,4 +62,8 @@ meta-data.
 %files devel
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
-%{_datadir}/*
+%{_datadir}/vala
+
+%files doc
+%{_defaultdocdir}/*
+%{_datadir}/devhelp/books
