@@ -1,6 +1,6 @@
 Name:       valum-0.3
 Version:    0.3.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Valum is a Web micro-framework written in Vala
 
 Group:      Development/Libraries
@@ -57,13 +57,13 @@ Provides user and API documentation in HTML and Devhelp formats.
 %files
 %doc README.md COPYING
 %{_libdir}/*
-%exclude %{_libdir}/pkgconfig
+%exclude %{_libdir}/pkgconfig/*
 
 %files devel
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
-%{_datadir}/vala
+%{_datadir}/vala/*
 
 %files doc
-%{_defaultdocdir}/*
-%{_datadir}/devhelp/books
+%{_defaultdocdir}/valum-0.3/*
+%{_datadir}/devhelp/books/valum-0.3
