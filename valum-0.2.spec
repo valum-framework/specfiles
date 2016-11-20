@@ -1,6 +1,6 @@
 Name:       valum-0.2
 Version:    0.2.16
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    Valum is a web micro-framework written in Vala
 
 Group:      Development/Libraries
@@ -13,6 +13,7 @@ BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gio-unix-2.0)
 BuildRequires: pkgconfig(libsoup-2.4)
 BuildRequires: fcgi-devel
+BuildRequires: python3-sphinx
 BuildRequires: vala
 BuildRequires: vala-tools
 
@@ -29,6 +30,13 @@ Requires:   valum-0.2
 Provides build files including C header, Vala bindings and GIR introspection
 meta-data.
 
+%package doc
+Summary:    Documentation for Valum
+BuildArch:  noarch
+
+%description doc
+Provides user documentation in HTML format.
+
 %prep
 %autosetup -n valum-%{version}
 
@@ -38,6 +46,8 @@ meta-data.
 
 %install
 ./waf install --destdir=%{buildroot}
+mkdir -p %{buildroot}%{_defaultdocdir}/valum-0.2/user
+cp -R build/docs %{buildroot}%{_defaultdocdir}/valum-0.2/user/en
 
 %check
 ./build/tests/tests
@@ -50,4 +60,8 @@ meta-data.
 %files devel
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
-%{_datadir}/*
+%{_datadir}/gir-1.0/*
+%{_datadir}/vala/*
+
+%files doc
+%{_defaultdocdir}/valum-0.2/*
