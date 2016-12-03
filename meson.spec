@@ -2,7 +2,7 @@
 
 Name:           meson
 Version:        0.36.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High productivity build system
 
 License:        ASL 2.0
@@ -11,8 +11,13 @@ Source0:        https://github.com/mesonbuild/meson/archive/%{version}/%{name}-%
 BuildArch:      noarch
 Obsoletes:      %{name}-gui < 0.31.0-3
 
+%if 0%{?epel}
+BuildRequires:  python34-devel
+BuildRequires:  python34-setuptools
+%else
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+%endif
 BuildRequires:  ninja-build
 # Various languages
 BuildRequires:  gcc
@@ -26,7 +31,10 @@ BuildRequires:  mono-core mono-devel
 %else
 BuildRequires:  rust
 %endif
+%if 0%{?epel}
+%else
 BuildRequires:  ldc
+%endif
 # Various libs support
 BuildRequires:  boost-devel
 BuildRequires:  gtest-devel
@@ -43,10 +51,18 @@ BuildRequires:  gnustep-base-devel
 BuildRequires:  git-core
 BuildRequires:  pkgconfig(protobuf)
 BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  pkgconfig(gobject-introspection-1.0) python3-gobject-base gtk-doc
+BuildRequires:  pkgconfig(gobject-introspection-1.0) gtk-doc
+%if 0%{?epel}
+%else
+BuildRequires:  python3-gobject-base
+%endif
 BuildRequires:  itstool
 BuildRequires:  pkgconfig(zlib)
+%if 0%{?epel}
+BuildRequires:  python34-Cython
+%else
 BuildRequires:  python3-Cython
+%endif
 Requires:       ninja-build
 
 %description
