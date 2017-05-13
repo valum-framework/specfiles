@@ -1,5 +1,5 @@
 Name:       valum-0.3
-Version:    0.3.10
+Version:    0.3.13
 Release:    1%{?dist}
 Summary:    Valum is a Web micro-framework written in Vala
 
