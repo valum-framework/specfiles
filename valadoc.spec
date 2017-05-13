@@ -1,7 +1,7 @@
 Name:    valadoc
 Summary: A documentation tool for Vala
 License: GPL
-Version: 0.35.0
+Version: 0.36.0
 Release: 1
 Source0: %{name}-%{version}.tar.xz
 
